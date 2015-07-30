@@ -87,17 +87,26 @@ public class CodificaHuffman {
     int i = 0;
     InputTextFile in = new InputTextFile( src );
     OutputTextFile out = new OutputTextFile( dst );
-
+    String c;
+    
   //  while( i<CHARS ){
       
 
       
-      for( i=0;i<127;i++){
-        char c = (char) i;
-        if( tab[c] != null ){
-          String w = tab[c];
+      for( i=0;i<CHARS;i++){
+        char ca = (char) i;
+        if ((char)i=='\n') c = "\\n";
+        else if((char)i==0) c = "NUL";
+        else if((char)i=='\r') c = "\\r";
+        
+        else if((char)i=='\t') c = "\\t";
+        else if((char)i=='\f') c = "\\f";
+        else if((char)i==' ') c = "SPC";
+        else c = "" + (char)i;
+        if( tab[ca] != null ){
+          String w = tab[ca];
           int h = w.length();
-          out.writeTextLine( i + " \t" + c + "\t" +  freq[c] + "\t" +  h  +  "\t" + tab[c]);
+          out.writeTextLine( i + " \t" + c + "\t" +  freq[ca] + "\t" +  h  +  "\t" + tab[ca]);
         }else{
         
         }  
