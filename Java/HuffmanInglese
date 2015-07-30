@@ -140,7 +140,9 @@ public class MyHuffman
   
 
 
-****************
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////                  MIEI METODI        /////////////////////////////////////////////////////////
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
    public static void myCompress( String src, String dst ) {
     
@@ -194,7 +196,38 @@ public class MyHuffman
     return count;
   }
 
+  ///////////////genera un array di frequenze a partire da un file contente la statistica di frequenza///////////////
+  public static int[] tree2Array(String in)
+  {
+    InputTextFile tree = new InputTextFile(in);
+    int[] array = new int[128];
+    int i=0,num;
+    double temp;
+    while(tree.textAvailable())
+    {
+      temp=Double.parseDouble(tree.readTextLine())*1000;
+      num=(int) temp;
+      array[i] = num;
+      //System.out.println(i+" "+array[i]);
+      i++;
+    }
+    tree.close();
+    return array;
+  }
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  //////////metodo di debug////////////////////////////////////
+    public static void printArray( String output, int[] array)
+  {
+    OutputTextFile out = new OutputTextFile(output);
+    for(int i=0; i<128; i++)
+    {
+     // System.out.println(array[i]);
+      out.writeTextLine(i+" "+array[i]);
+    } 
+    out.close();
+  }
+////////////////////////////////////////////////////////////
 
 
  public static void myDecompress( String src, String dst ) {
