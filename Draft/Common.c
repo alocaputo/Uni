@@ -4,23 +4,23 @@ int main()
 {
     int x,y,i,j,temp;
 
-    printf("Inserisci la lungezza dei vettori: ");
+    printf("Length of the arrays A and B: ");
     scanf("%d %d", &x, &y);
     int a[x];
     int b[y];
     int c[x+y];
     
-    printf("Inserisci valori di A: ");
+    printf("A arrat values: ");
     for(i=0;i<x;i++){
         scanf("%d",&a[i]);
     }
 
-    printf("Inserisci valori di B: ");
+    printf("B array values: ");
     for(i=0;i<y;i++){
         scanf("%d",&b[i]);
     }
     
-    //-----Unione A e B--------
+    //-----Merge A and B into C--------
     
     for(i=0;i<=x-1;i++){
       c[i] = a[i];
@@ -29,7 +29,7 @@ int main()
       c[j+x] = b[j];
     }
  
-    //----Insertion Sort-------------
+    //----Do Insertion Sort-------------
     
     for ( i = 1; i < x+y; i++) {
       for( j = i ; j > 0 ; j--){
@@ -41,8 +41,8 @@ int main()
       }
     }
     
-    //-----Ricerca valori comuni------
-    printf("I valori comuni sono: ");
+    //-----Search for common values------
+    printf("The common values are: ");
     for(i=0;i<x+y-1;i++){
       if(c[i]== c[i+1]){
          
