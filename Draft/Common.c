@@ -10,7 +10,7 @@ int main()
     int b[y];
     int c[x+y];
     
-    printf("A arrat values: ");
+    printf("A array values: ");
     for(i=0;i<x;i++){
         scanf("%d",&a[i]);
     }
