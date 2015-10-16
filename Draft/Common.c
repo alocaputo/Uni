@@ -2,61 +2,53 @@
 
 int main()
 {
-    int x,y,z,w,k,i,j,temp,o,p;
+    int x,y,i,j,temp;
 
-    printf("Inserisci lungezza vettori: ");
+    printf("Inserisci la lungezza dei vettori: ");
     scanf("%d %d", &x, &y);
     int a[x];
     int b[y];
     int c[x+y];
     
-    
-    for(i=0;i<x;i++)
-    {
-        printf("Enter a no ");
-        scanf("%d",&z);
-        a[i] = z;
+    printf("Inserisci valori di A: ");
+    for(i=0;i<x;i++){
+        scanf("%d",&a[i]);
+    }
+
+    printf("Inserisci valori di B: ");
+    for(i=0;i<y;i++){
+        scanf("%d",&b[i]);
     }
     
-     for(i=0;i<y;i++)
-    {
-        printf("Enter a no ");
-        scanf("%d",&w);
-        b[i] = w;
-    }
+    //-----Unione A e B--------
     
- //   for(i=0;i<x;i++){
- //     printf("%d, " ,a[i]);
- //   }
     for(i=0;i<=x-1;i++){
       c[i] = a[i];
     }
-    
     for(j=0;j<=y-1;j++){
       c[j+x] = b[j];
     }
  
-
+    //----Insertion Sort-------------
     
-        for ( o = 1; o < x+y; o++) {
-      for( p = o ; p > 0 ; p--){
-        if(c[p] < c[p-1]){
-          temp = c[p];
-          c[p] = c[p-1];
-          c[p-1] = temp;
+    for ( i = 1; i < x+y; i++) {
+      for( j = i ; j > 0 ; j--){
+        if(c[j] < c[j-1]){
+          temp = c[j];
+          c[j] = c[j-1];
+          c[j-1] = temp;
         }
       }
     }
     
-    for(k=0;k<x+y-1;k++){
-      if(c[k]== c[k+1]){
-        printf("%d, ",c[k]);
+    //-----Ricerca valori comuni------
+    printf("I valori comuni sono: ");
+    for(i=0;i<x+y-1;i++){
+      if(c[i]== c[i+1]){
+         
+        printf("%d, ",c[i]);
       }
     }
-//    for(i=0;i<x+y;i++){
-//    printf("%d, " ,c[i]);
-//    }
     
     return 0;
 }
-
