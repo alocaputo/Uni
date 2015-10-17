@@ -2,7 +2,7 @@
 
 int main()
 {
-    int a[] = {1,1};
+    int a[] = {1,2,3,4,5,6,7,2};
     
     printf("Hello, World!\n");
     divs(a,med(a));
@@ -11,13 +11,13 @@ int main()
 
 int med(int a[]){
     int l= sizeof(a);
-    int c=0,m=0,i;
+    int c=0,m=0,i=0;
     
     for(i=0;i<l;i++){
       c = c + a[i];
     }
     
-    m = c/l;
+    m = c/l;;
     return m;
     
     
@@ -47,19 +47,31 @@ int divs(int a[],int m){
 
     int sb[p],sc[q];
     
+//         for(i=0;i<l;i++){
+//        printf("%d, ",b[i]);
+        
+//    }
+    
     for(i=0;i<p;i++){
         sb[i]=b[i];
     }
     
     for(i=p;i<l;i++){
-        sc[i]=b[i];
+        sc[i-p]=b[i];
     }
 
+
+
     divs(sb,med(sb));
-    divs(sc,med(sc));
+     divs(sc,med(sc));
+ //       for(i=0;i<p;i++){
+ //       printf("%d",sc[i]);
+        
+ //   }
+    
     
     }else if(l==2 && a[0]==a[1]){
-        printf("%d",a[0]);
+        printf("%d, ",a[0]);
         }
+        return 0;
 }
-    
