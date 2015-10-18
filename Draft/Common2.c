@@ -1,3 +1,5 @@
+//SIZE OF ARRAYS PROBLEM
+
 #include <stdio.h>
 
 int main()
