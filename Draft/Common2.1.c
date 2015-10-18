@@ -2,7 +2,7 @@
 
 int main()
 {
-    int x,y,i,j,temp;
+    int x,y,i;
 
     printf("Length of the arrays A and B: ");
     scanf("%d %d", &x, &y);
@@ -25,21 +25,22 @@ int main()
     for(i=0;i<=x-1;i++){
       c[i] = a[i];
     }
-    for(j=0;j<=y-1;j++){
-      c[j+x] = b[j];
+    for(i=0;i<=y-1;i++){
+      c[i+x] = b[i];
     }
     
-    int l = x +y;
-    dvs(c,med(c,l),l);
+    int l = x +y;        // length[c]
+    comm(c,med(c,l),l);
 
-    return l;
     return 0;
 }
 
-int med(int a[],int l){
+//-------Calcolo valore medio------------
+int med(int a[],int l){     
     int c=0,m=0,i=0;
+    
     for(i=0;i<l;i++){
-      c = c + a[i];
+      c = c + a[i];         
     }
     
     m = c/l;;
@@ -47,44 +48,32 @@ int med(int a[],int l){
     return 0;
 }
 
-int dvs(int a[],int m,int l){
-    int i=0,p=0;
+int comm(int a[],int m,int l){
+    int i=0,p=0,c=0;
     int q= l-1;
-    int b[l];
+    int sa[p],sb[l-p];
     
-    for(i=0;i<l;i++){
-        b[i]=0;
-    }
     
     if(l>2){
         for(i=0;i<l;i++){
-           if(a[i]<=m){
-              b[p] = a[i];
+           if(a[i]<=m){         
+              sa[p] = a[i];     //Array contenete valori <= m
                p = p + 1;
         }else{
-              b[q] = a[i];
+              sb[c] = a[i];     //Array contenete valori > m
+              c = c + 1;
               q= q -1;
         }
       }
 
-    int sb[p],sc[l-p];
-    
-    
-    for(i=0;i<p;i++){
-        sb[i]=b[i];
-    }
-    
-    for(i=p;i<l;i++){
-        sc[i-p]=b[i];
-    }
-
-    int la = p;
-    int lb = l-p;
-     dvs(sb,med(sb,la),la);
-     dvs(sc,med(sc,lb),lb);
+    int la = p;                 //length[sa]
+    int lb = l-p;               //length[sb]
+     comm(sa,med(sa,la),la);
+     comm(sb,med(sb,lb),lb);
 
     
-    }else if(l==2 && a[0]==a[1]){
+    }else if(l==2 && a[0]==a[1]){   //Numero comune
+        printf("Common values are: ");
         printf("%d, ",a[0]);
         }
         return 0;
