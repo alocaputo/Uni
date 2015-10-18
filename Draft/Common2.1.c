@@ -74,7 +74,7 @@ int comm(int a[],int m,int l){
     
     }else if(l==2 && a[0]==a[1]){   //Numero comune
         printf("Common values are: ");
-        printf("%d, ",a[0]);
+        printf("%d ",a[0]);
         }
         return 0;
 }
