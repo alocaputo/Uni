@@ -30,7 +30,7 @@ int main()
     }
     
     int l = x +y;
-    dvs(a,med(a,l),l);
+    dvs(c,med(c,l),l);
 
     return l;
     return 0;
